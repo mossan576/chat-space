@@ -2,13 +2,13 @@
   .SideBar__user-name
     .SideBar__user-name__top-items
       .SideBar__user-name__top-items__name
-        name
+        = current_user.name
       .SideBar__user-name__top-items__icons
         .SideBar__user-name__top-items__icons__icon
         = link_to "#", class: "SideBar__btn" do
           = icon('far', 'edit')
         .SideBar__user-name__top-items__icons__icon
-        = link_to "#", class: "SideBar__btn" do
+        = link_to edit_user_path(current_user) , class: "SideBar__btn" do
           = icon('fas', 'cog')
   .SideBar__group-list
     .SideBar__group-list__name
