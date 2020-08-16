@@ -5,17 +5,16 @@
         = current_user.name
       .SideBar__user-name__top-items__icons
         .SideBar__user-name__top-items__icons__icon
-        = link_to "#", class: "SideBar__btn" do
+        = link_to new_group_url, class: "SideBar__btn" do
           = icon('far', 'edit')
         .SideBar__user-name__top-items__icons__icon
         = link_to edit_user_path(current_user) , class: "SideBar__btn" do
           = icon('fas', 'cog')
   .SideBar__group-list
-    .SideBar__group-list__name
-      techcamp
-    .SideBar__group-list__new-message
-      madanai
-    .SideBar__group-list__name
-      techcamp
-    .SideBar__group-list__new-message
-      madanai
+    - current_user.groups.each do |group|
+      .SideBar__group-list__group
+        = link_to '#', class: "SideBar__groups" do
+          .SideBar__group-list__group__name
+            = group.name
+          .SideBar__group-list__group__new-message
+            メッセージはまだありません

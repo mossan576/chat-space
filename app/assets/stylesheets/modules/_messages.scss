@@ -38,18 +38,22 @@
       height: calc(100vh - 100px);
       color: #ffffff;
       font-weight: bold;
-      &__name{
-        font-size: 15px;
-        padding: 20px 20px 5px 20px;
-      }
-      &__new-message{
-        font-size: 11px;
-        padding: 0 20px 40px 20px;
+      &__group{
+        color: #fafafa;
+        &__name{
+          font-size: 15px;
+          padding: 20px 20px 5px 20px;
+        }
+       &__new-message{
+          font-size: 11px;
+          padding: 0 20px 40px 20px;
+        }
       }
     }
   }
-.SideBar__btn{
+.SideBar__btn, .SideBar__groups{
   color: #ffffff;
+  text-decoration: none;
 }
   
 .MainChat {
