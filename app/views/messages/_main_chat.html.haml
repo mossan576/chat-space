@@ -2,33 +2,22 @@
   .MainChat__group-info
     .MainChat__group-info__current-group
       .MainChat__group-info__current-group__name
-        test
+        = @group.name
       .MainChat__group-info__current-group__member-list
-        %ul Member :
-        .MainChat__group-info__current-group__member-list__member
-          %li taro jiro
+        Member :
+        %ul.MainChat__group-info__current-group__member-list__member
+          - @group.users.each do |user|
+            %li= user.name
     .MainChat__group-info__edit
-      = link_to "#", class:"MainChat__btn" do
+      = link_to edit_group_path(@group), class:"MainChat__btn" do
         Edit
   .MainChat__message-list
-    .MainChat__message-list__info
-      .MainChat__message-list__info__name
-        taro
-      .MainChat__message-list__info__date
-        2020/08/14
-    .MainChat__message-list__message
-      Hello
-    .MainChat__message-list__info
-      .MainChat__message-list__info__name
-        jiro
-      .MainChat__message-list__info__date
-        2020/08/14
-    .MainChat__message-list__message
-      world
-  %form.MainChat__message-form
-    .MainChat__message-form__contents
-      %input.MainChat__message-form__contents__input-text{type: "text", placeholder: "type a message"}
-      %label.MainChat__message-form__contents__label
-        = icon('fas', 'image')
-        %input.MainChat__message-form__contents__label__file{type: "file"}
-    %input.MainChat__message-form__submit-btn{type: "submit", value: "Send"}
+    = render @messages
+  .MainChat__footer
+    = form_with model: [@group, @message], html: {class: "MainChat__message-form"}, local: true do |f|
+      .MainChat__message-form__contents
+        = f.text_field :content, class: 'MainChat__message-form__contents__input-text', placeholder: 'type a message'
+        = f.label :image, class: 'MainChat__message-form__contents__label' do
+          = icon('far', 'image')
+          = f.file_field :image, class: 'MainChat__message-form__contents__label__file'
+      = f.submit 'Send', class: 'MainChat__message-form__submit-btn'

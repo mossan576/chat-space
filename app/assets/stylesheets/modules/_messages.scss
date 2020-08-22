@@ -78,6 +78,10 @@
           &__member{
             list-style: none;
             padding-left: 4px;
+            display: flex;
+            li{
+              margin-right: 4px;
+            }
           }
         }
       }
@@ -94,6 +98,7 @@
       background-color: #fafafa;
       height: calc(100vh - 190px);
       padding: 35px 0 0 40px;
+      overflow: scroll;
       &__info{
         display: flex;
         margin-bottom: 12px;
