@@ -10,7 +10,7 @@ $(function(){
               ${message.created_at}
             </div>
           </div>
-          <div class="MainChat__message-list__message">
+          <div class="MainChat__message-list__message" data-message-id=${message.id}>
             <p class="Message__content">
               ${message.content}
             </p>
@@ -27,7 +27,7 @@ $(function(){
             ${message.created_at}
           </div>
         </div>
-        <div class="MainChat__message-list__message">
+        <div class="MainChat__message-list__message" data-message-id=${message.id}>
           <p class="Message__content">
             ${message.content}
           </p>
@@ -61,4 +61,5 @@ $(function(){
       $('.MainChat__message-form__submit-btn').prop('disabled', false);
     });
   });
+
 });
