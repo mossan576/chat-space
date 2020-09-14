@@ -2,41 +2,45 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        ` <div class="MainChat__message-list__info">
-            <div class="MainChat__message-list__info__name">
+       `<div class="MainChat__message-list__box">
+          <div class="MainChat__message-list__box__info">
+            <div class="MainChat__message-list__box__info__name">
               ${message.user_name}
             </div>
-            <div class="MainChat__message-list__info__data">
+            <div class="MainChat__message-list__box__info__date">
               ${message.created_at}
             </div>
           </div>
-          <div class="MainChat__message-list__message" data-message-id=${message.id}>
+          <div class="MainChat__message-list__box__message" data-message-id=${message.id}>
             <p class="Message__content">
               ${message.content}
             </p>
             <img class="Message__image" src="${message.image}">
-          </div>`
+          </div>
+        </div>`
       return html;
     } else {
       let html =
-      ` <div class="MainChat__message-list__info">
-          <div class="MainChat__message-list__info__name">
+     `<div class="MainChat__message-list__box">
+        <div class="MainChat__message-list__box__info">
+          <div class="MainChat__message-list__box__info__name">
             ${message.user_name}
           </div>
-          <div class="MainChat__message-list__info__data">
+          <div class="MainChat__message-list__box__info__date">
             ${message.created_at}
           </div>
         </div>
-        <div class="MainChat__message-list__message" data-message-id=${message.id}>
+        <div class="MainChat__message-list__box__message" data-message-id=${message.id}>
           <p class="Message__content">
             ${message.content}
           </p>
-        </div>`
+        </div>
+      </div>`
       return html;
     };
   }
   let reloadMessages = function() {
-    let last_message_id = $('.MainChat__message-list__message:last').data("message-id") || 0;
+    let last_message_id = $('.MainChat__message-list__box__message:last').data("message-id") || 0;
     $.ajax({
       url: "api/messages",
       type: 'get',

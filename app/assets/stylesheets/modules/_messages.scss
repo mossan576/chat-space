@@ -99,23 +99,25 @@
       height: calc(100vh - 190px);
       padding: 35px 0 0 40px;
       overflow: scroll;
-      &__info{
-        display: flex;
-        margin-bottom: 12px;
-        &__name{
-          color: #333333;
-          font-size: 16px;
+      &__box{
+        &__info{
+          display: flex;
+          margin-bottom: 12px;
+          &__name{
+            color: #333333;
+            font-size: 16px;
+          }
+          &__date{
+            color: #999999;
+            font-size: 12px;
+            margin-left: 10px;
+          }
         }
-        &__date{
-          color: #999999;
-          font-size: 12px;
-          margin-left: 10px;
+        &__message{
+          color: #434A54;
+          font-size: 14px;
+          margin-bottom: 46px;
         }
-      }
-      &__message{
-        color: #434A54;
-        font-size: 14px;
-        margin-bottom: 46px;
       }
     }
     &__message-form{
